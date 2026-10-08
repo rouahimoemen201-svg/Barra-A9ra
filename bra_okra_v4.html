@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bra Okra — برا اقرا</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Tahoma,sans-serif;background:#f6f7fb;color:#182033}button,input,select,textarea{font:inherit}button{cursor:pointer}
+:root{--p:#5b4bff;--p2:#7b6cff;--dark:#182033;--muted:#687386;--card:#fff;--line:#e8eaf1}
+.top{background:linear-gradient(120deg,#4b3cf0,#765cff);color:white;padding:9px 6%;text-align:center;font-size:14px}
+nav{height:72px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:25px;padding:0 6%;position:sticky;top:0;z-index:5}
+.logo{font-weight:900;font-size:24px;color:var(--p);white-space:nowrap}.logo span{color:#111}
+nav a{color:#485268;text-decoration:none;font-weight:700;cursor:pointer}.navspace{flex:1}
+.btn{border:0;border-radius:12px;padding:11px 17px;font-weight:800}.primary{background:var(--p);color:white}.light{background:#eef0ff;color:var(--p)}
+.hero{padding:65px 7%;background:linear-gradient(135deg,#f0efff,#fff);display:grid;grid-template-columns:1.2fr .8fr;gap:45px;align-items:center}
+h1{font-size:48px;line-height:1.12;margin:10px 0}.hero p{font-size:18px;color:var(--muted);line-height:1.8}.search{background:#fff;border:1px solid var(--line);padding:7px;border-radius:15px;display:flex;max-width:700px}.search input{border:0;outline:0;flex:1;padding:12px;background:transparent}.heroCard{background:#fff;border-radius:25px;padding:25px;box-shadow:0 18px 50px #4038a822;transform:rotate(2deg)}
+.stat{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat div{background:#f7f7ff;padding:15px;border-radius:14px;text-align:center}.stat b{display:block;font-size:23px;color:var(--p)}
+section{padding:45px 7%}.title{display:flex;align-items:end;justify-content:space-between;margin-bottom:22px}.title h2{margin:0;font-size:28px}.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.2s}.card:hover{transform:translateY(-4px);box-shadow:0 12px 35px #2221}.thumb{height:125px;background:linear-gradient(135deg,#e9e7ff,#f6f4ff);display:flex;align-items:center;justify-content:center;font-size:45px}.body{padding:16px}.tag{display:inline-block;padding:5px 9px;border-radius:20px;background:#eeeaff;color:var(--p);font-size:12px;font-weight:800}.price{font-weight:900;font-size:19px}.row{display:flex;align-items:center;justify-content:space-between;gap:8px}.stars{color:#f4a800}.cats{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.cat{background:white;border:1px solid var(--line);padding:20px 10px;text-align:center;border-radius:16px;font-weight:800}.cat b{display:block;font-size:28px;margin-bottom:8px}
+footer{background:#151a2a;color:#dfe3f1;padding:40px 7%;margin-top:20px}.footergrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}.footergrid h3{color:white}
+.page{min-height:65vh}.hidden{display:none!important}.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}.filters select,.filters input,.form input,.form textarea,.form select{padding:12px;border:1px solid var(--line);border-radius:11px;background:#fff;outline:none}.modal{position:fixed;inset:0;background:#1119;display:flex;align-items:center;justify-content:center;z-index:20;padding:20px}.modalbox{background:#fff;border-radius:20px;max-width:620px;width:100%;padding:25px;max-height:90vh;overflow:auto}.form{display:grid;gap:13px}.form textarea{min-height:110px}.toast{position:fixed;bottom:20px;left:20px;background:#182033;color:#fff;padding:14px 18px;border-radius:12px;z-index:30}
+.profile{display:flex;align-items:center;gap:12px}.avatar{width:42px;height:42px;border-radius:50%;background:var(--p);color:#fff;display:grid;place-items:center;font-weight:900}
+@media(max-width:900px){nav{padding:0 4%;gap:12px}.navlinks{display:none}.hero{grid-template-columns:1fr;padding:45px 5%}h1{font-size:38px}.grid{grid-template-columns:repeat(2,1fr)}.cats{grid-template-columns:repeat(3,1fr)}section{padding:35px 5%}.footergrid{grid-template-columns:1fr}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.cats{grid-template-columns:repeat(2,1fr)}.heroCard{transform:none}.stat{grid-template-columns:1fr}.logo{font-size:20px}}
+</style></head>
+<body>
+<div class="top">🎓 برا اقرا — اقرا، شارك، بيع، واشري</div>
+<nav>
+<div class="logo">برا <span>اقرا</span></div>
+<div class="navlinks">
+<a onclick="go('home')">الرئيسية</a> <a onclick="go('market')">المتجر</a> <a onclick="go('sell')">بيع وثيقة</a> <a onclick="go('dashboard')">حسابي</a>
+</div><div class="navspace"></div><button class="btn light" onclick="cart()">🛒</button><button class="btn light" onclick="toggleLang()">AR / EN</button><button id="authBtn" class="btn primary" onclick="openLogin()">دخول</button>
+</nav>
+
+<main id="home" class="page">
+<div class="hero"><div><span class="tag">منصة الطلبة 🇹🇳</span><h1>كل ما تحتاجه باش<br><span style="color:var(--p)">تقرا خير</span></h1><p>ملخصات، séries، cours، examens corrigés وdocuments من الطلبة للطلبة.</p>
+<div class="search"><input id="heroSearch" placeholder="شنوة تحب تلقى؟ مثال: comptabilité..."><button class="btn primary" onclick="searchHero()">🔎 بحث</button></div>
+<br><button class="btn primary" onclick="go('market')">اكتشف الوثائق</button> <button class="btn light" onclick="go('sell')">بيع وثيقتك</button></div>
+<div class="heroCard"><h2>📚 برا اقرا Marketplace</h2><p class="muted">اشري وثائقك الرقمية، وخلي خدمتك الدراسية مصدر دخل.</p><div class="stat"><div><b>1.2K+</b>وثيقة</div><div><b>850+</b>طالب</div><div><b>4.8★</b>تقييم</div></div></div></div>
+
+<section><div class="title"><h2>تصفح حسب المجال</h2><span class="muted">اختار اختصاصك</span></div><div class="cats">
+<div class="cat" onclick="filterCat('Comptabilité')"><b>📊</b>Comptabilité</div><div class="cat" onclick="filterCat('Gestion')"><b>💼</b>Gestion</div><div class="cat" onclick="filterCat('Économie')"><b>📈</b>Économie</div><div class="cat" onclick="filterCat('Informatique')"><b>💻</b>Informatique</div><div class="cat" onclick="filterCat('Droit')"><b>⚖️</b>Droit</div><div class="cat" onclick="filterCat('Langues')"><b>🌍</b>Langues</div>
+</div></section>
+<section><div class="title"><h2>🔥 الأكثر طلباً</h2><button class="btn light" onclick="go('market')">شوف الكل</button></div><div id="homeGrid" class="grid"></div></section>
+</main>
+
+<main id="market" class="page hidden"><section><div class="title"><h2>🛒 Marketplace</h2><span id="resultCount" class="muted"></span></div>
+<div class="filters"><input id="marketSearch" placeholder="ابحث..." oninput="renderMarket()"><select id="catFilter" onchange="renderMarket()"><option value="">كل المواد</option><option>Comptabilité</option><option>Gestion</option><option>Économie</option><option>Informatique</option><option>Droit</option><option>Langues</option></select><select id="priceFilter" onchange="renderMarket()"><option value="">كل الأسعار</option><option value="free">مجاني</option><option value="cheap">≤ 10 DT</option></select></div><div id="marketGrid" class="grid"></div></section></main>
+
+<main id="sell" class="page hidden"><section><div class="title"><h2>📤 بيع وثيقتك</h2></div><div class="panel form"><label>عنوان الوثيقة<input id="sellTitle" placeholder="مثال: Série 1 Comptabilité Financière"></label><label>المادة<select id="sellCat"><option>Comptabilité</option><option>Gestion</option><option>Économie</option><option>Informatique</option><option>Droit</option><option>Langues</option></select></label><label>السعر (DT)<input id="sellPrice" type="number" min="0" value="5"></label><label>الوصف<textarea id="sellDesc" placeholder="اشرح محتوى الوثيقة..."></textarea></label><label>الملف<input id="sellFile" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx"></label><button class="btn primary" onclick="publishDoc()">نشر الوثيقة</button><small class="muted">الملفات المجانية فقط قابلة للتحميل حالياً. الدفع الحقيقي قريباً.</small></div></section></main>
+
+<main id="dashboard" class="page hidden"><section><div class="title"><h2>👤 حسابي</h2></div><div class="grid">
+<div class="panel"><h3>📦 مشترياتي</h3><p class="muted">الوثائق اللي شريتهم</p><button class="btn primary" onclick="toast('Demo: لا توجد مشتريات حقيقية بعد')">فتح</button></div>
+<div class="panel"><h3>💰 مبيعاتي</h3><p class="muted">تابع الوثائق والمداخيل</p><button class="btn primary" onclick="toast('Demo: المداخيل = 0 DT')">Dashboard</button></div>
+<div class="panel"><h3>⭐ التقييمات</h3><p class="muted">4.8/5 متوسط المنصة</p></div>
+<div class="panel"><h3>⚙️ الإعدادات</h3><p class="muted">الحساب واللغة والإشعارات</p><button class="btn light" onclick="toast('Settings demo')">إعدادات</button></div>
+</div></section><section id="features"><div class="title"><h2>✨ علاش برا اقرا؟</h2><span class="muted">مصممة للطلبة</span></div><div class="grid"><div class="panel"><h3>🔎 تلقى بسرعة</h3><p class="muted">ابحث حسب المادة، المستوى أو نوع الوثيقة.</p></div><div class="panel"><h3>📥 تشري وتحمّل</h3><p class="muted">بعد الشراء، الوثائق تلقاها في حسابك.</p></div><div class="panel"><h3>💰 بيع خدمتك</h3><p class="muted">حوّل ملخصاتك وSéries متاعك إلى دخل.</p></div><div class="panel"><h3>⭐ تقييمات</h3><p class="muted">اختار الوثائق حسب تقييم الطلبة.</p></div></div></section></main>
+
+<footer><div class="footergrid"><div><h2>برا اقرا</h2><p>منصة تونسية للطلبة: اقرا، شارك، بيع، واشري.</p></div><div><h3>المنصة</h3><p>المتجر<br>بيع وثيقة<br>حسابي</p></div><div><h3>المساعدة</h3><p>الأسئلة الشائعة<br>اتصل بنا<br>شروط الاستخدام</p></div></div></footer>
+
+<div id="modal" class="modal hidden"><div class="modalbox"><div class="row"><h2 id="modalTitle">دخول</h2><button class="btn light" onclick="closeModal()">✕</button></div><div class="form"><input placeholder="Email"><input type="password" placeholder="Mot de passe"><button class="btn primary" onclick="fakeLogin()">دخول للحساب</button><button class="btn light" onclick="closeModal()">إلغاء</button></div></div></div>
+<div id="toast" class="toast hidden"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+const sb=supabase.createClient('https://mglipqweosxyycwmeilm.supabase.co','sb_publishable_CwckiQ8Lc9nT3itX-dmIMw_kiH7Tz5G');
+const ICONS={'Comptabilité':'📊','Gestion':'💼','Économie':'📈','Informatique':'💻','Droit':'⚖️','Langues':'🌍'};
+let docs=[],user=null;
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const $=id=>document.getElementById(id);
+function card(d){return `<div class="card"><div class="thumb">${ICONS[d.category]||'📄'}</div><div class="body" onclick="viewDoc('${d.id}')"><span class="tag">${esc(d.category)}</span><h3>${esc(d.title)}</h3><div class="row"><span class="muted">${new Date(d.created_at).toLocaleDateString('fr-TN')}</span><b>${d.price>0?d.price+' DT':'مجاني'}</b></div><p class="muted">بواسطة ${esc(d.seller_name||'—')}</p><button class="btn primary" style="width:100%" onclick="event.stopPropagation();buy('${d.id}')">${d.price>0?'🛒 اشري الوثيقة':'📥 حمّل مجاناً'}</button></div></div>`}
+const EMPTY='<p class="muted">ما فماش وثائق بعد. كون أول واحد يبيع وثيقة! 🚀</p>';
+function renderHome(){homeGrid.innerHTML=docs.length?docs.slice(0,4).map(card).join(''):EMPTY}
+function renderMarket(){let q=(marketSearch.value||'').toLowerCase(),c=catFilter.value,p=priceFilter.value;let x=docs.filter(d=>(!q||d.title.toLowerCase().includes(q)||d.category.toLowerCase().includes(q))&&(!c||d.category===c)&&(!p||(p==='free'?d.price==0:d.price<=10)));marketGrid.innerHTML=x.length?x.map(card).join(''):EMPTY;resultCount.textContent=x.length+' وثائق'}
+async function loadDocs(){const{data,error}=await sb.from('documents').select('*').order('created_at',{ascending:false});if(error){toast('خطأ في التحميل: '+error.message);return}docs=data||[];renderHome();renderMarket()}
+function go(id){document.querySelectorAll('main').forEach(x=>x.classList.add('hidden'));$(id).classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});if(id==='market')renderMarket()}
+function filterCat(c){go('market');catFilter.value=c;renderMarket()}
+function searchHero(){go('market');marketSearch.value=heroSearch.value;renderMarket()}
+function showModal(title,html){modal.classList.remove('hidden');modalTitle.textContent=title;modal.querySelector('.form').innerHTML=html}
+function closeModal(){modal.classList.add('hidden')}
+function viewDoc(id){let d=docs.find(x=>x.id===id);if(!d)return;showModal('📄 '+d.title,`<span class="tag">${esc(d.category)}</span><p>👤 ${esc(d.seller_name||'—')}</p><div class="panel"><b>الوصف</b><p class="muted">${esc(d.description||'بدون وصف')}</p></div><button class="btn primary" onclick="buy('${d.id}')">${d.price>0?'🛒 اشري — '+d.price+' DT':'📥 تحميل مجاني'}</button><button class="btn light" onclick="closeModal()">رجوع</button>`)}
+async function buy(id){let d=docs.find(x=>x.id===id);if(!d)return;if(d.price>0){toast('💳 الدفع الحقيقي قريباً');return}if(!user){openLogin();toast('سجّل الدخول باش تحمّل');return}const{data,error}=await sb.storage.from('documents').createSignedUrl(d.file_path,60,{download:true});if(error){toast('تعذّر التحميل: '+error.message);return}window.open(data.signedUrl,'_blank')}
+function cart(){showModal('🛒 السلة','<p>السلة فارغة.</p><button class="btn primary" onclick="go(\'market\');closeModal()">اكتشف الوثائق</button>')}
+function openLogin(){if(user){showModal('👤 حسابي',`<p>${esc(user.email)}</p><button class="btn light" onclick="logout()">خروج</button>`);return}showModal('👤 الدخول إلى برا اقرا','<input id="lEmail" type="email" placeholder="Email"><input id="lPass" type="password" placeholder="Mot de passe (6+ caractères)"><button class="btn primary" onclick="doLogin()">دخول</button><button class="btn light" onclick="doSignup()">إنشاء حساب جديد</button>')}
+async function doLogin(){const{error}=await sb.auth.signInWithPassword({email:lEmail.value.trim(),password:lPass.value});if(error){toast('❌ '+error.message);return}closeModal();toast('👋 مرحبا!')}
+async function doSignup(){const{data,error}=await sb.auth.signUp({email:lEmail.value.trim(),password:lPass.value});if(error){toast('❌ '+error.message);return}closeModal();toast(data.session?'✅ تم إنشاء الحساب':'📧 تثبّت من إيميلك باش تفعّل الحساب')}
+async function logout(){await sb.auth.signOut();closeModal();toast('تم الخروج')}
+function updateAuth(){authBtn.textContent=user?'👤 '+user.email.split('@')[0]:'دخول'}
+async function publishDoc(){if(!user){openLogin();toast('سجّل الدخول أولاً');return}let t=sellTitle.value.trim(),f=sellFile.files[0],p=Number(sellPrice.value)||0;if(t.length<3){toast('اكتب عنوان الوثيقة');return}if(!f){toast('اختار ملف');return}if(f.size>20*1048576){toast('الملف أكبر من 20 MB');return}toast('⏳ جاري الرفع...');const path=user.id+'/'+Date.now()+'-'+f.name.replace(/[^\w.-]/g,'_');const up=await sb.storage.from('documents').upload(path,f);if(up.error){toast('❌ '+up.error.message);return}const ins=await sb.from('documents').insert({title:t,category:sellCat.value,price:p,description:sellDesc.value.trim(),file_path:path,seller_name:user.email.split('@')[0]});if(ins.error){toast('❌ '+ins.error.message);return}sellTitle.value='';sellDesc.value='';sellFile.value='';toast('✅ تم نشر الوثيقة');await loadDocs();go('market')}
+function toast(s){let x=$('toast');x.textContent=s;x.classList.remove('hidden');setTimeout(()=>x.classList.add('hidden'),3500)}
+function toggleLang(){toast('🌍 English mode قريباً')}
+sb.auth.onAuthStateChange((_e,s)=>{user=s?.user||null;updateAuth()});
+sb.auth.getSession().then(({data})=>{user=data.session?.user||null;updateAuth()});
+loadDocs();
+</script>
+</body></html>
